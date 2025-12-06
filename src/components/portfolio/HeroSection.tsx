@@ -7,13 +7,7 @@ const skills = ["Full Stack Developer", "UI/UX Designer", "Problem Solver", "Tec
 
 export const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero">
-      {/* Background Grid Pattern */}
-      <div className="absolute inset-0 grid-pattern opacity-30" />
-      
-      {/* Animated Gradient Orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse-slow" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-secondary/15 rounded-full blur-[100px] animate-pulse-slow" style={{ animationDelay: "2s" }} />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
 
       <div className="container mx-auto px-6 pt-32 pb-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -123,10 +117,19 @@ export const HeroSection = () => {
               {/* Decorative ring */}
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 blur-xl animate-pulse-slow" />
               
-              {/* Image container */}
+              {/* Image container - Add your photo here */}
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/30 glow-primary">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
-                <div className="w-full h-full flex items-center justify-center text-6xl font-display font-bold text-primary/50">
+                <img 
+                  src="https://media.licdn.com/dms/image/v2/D5603AQHMKpWz6LHQYQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1719247497877"
+                  alt="Steve T - Full Stack Developer"
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    // Fallback to initials if image fails
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                  }}
+                />
+                <div className="hidden absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center text-6xl font-display font-bold text-primary/50">
                   ST
                 </div>
               </div>
