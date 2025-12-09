@@ -52,7 +52,7 @@ export const Navbar = () => {
               <a
                 key={item.label}
                 href={item.href}
-                className="px-4 py-2 text-sm font-display font-bold text-gradient-primary transition-colors relative group"
+                className="px-4 py-2 text-sm font-display font-bold uppercase text-gradient-primary transition-colors relative group"
               >
                 {item.label}
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-3/4" />
