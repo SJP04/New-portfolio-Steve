@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Download, Github, Instagram, Linkedin, Mail } from "lucide-react";
 
 const skills = ["Full Stack Developer", "UI/UX Designer", "Problem Solver", "Tech Enthusiast"];
 
@@ -96,6 +96,14 @@ export const HeroSection = () => {
                 className="p-3 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
               >
                 <Linkedin size={22} />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
+              >
+                <Instagram size={22} />
               </a>
               <a
                 href="mailto:steve@example.com"
