@@ -12,7 +12,7 @@ export const Footer = () => {
           className="flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <div className="flex items-center gap-2 text-muted-foreground text-sm">
-            <span>© {new Date().getFullYear()} Steve T. Built with</span>
+            <span>© {new Date().getFullYear()} Steve — Forged with vision and finesse. All rights reserved.</span>
             <Heart className="text-primary" size={16} fill="currentColor" />
           </div>
 
