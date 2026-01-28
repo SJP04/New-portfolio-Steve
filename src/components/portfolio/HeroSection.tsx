@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowDown, Download, Github, Instagram, Linkedin, Mail } from "lucide-react";
 
-const skills = ["Full Stack Developer", "UI/UX Designer", "Problem Solver", "Tech Enthusiast"];
+const skills = ["Full Stack Developer", "AI/ML Developer", "Team Worker", "Tech Enthusiast"];
 
 export const HeroSection = () => {
   return (
@@ -24,11 +24,11 @@ export const HeroSection = () => {
               </Badge>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-tight">
-                <span className="text-foreground">Crafting</span>
+                <span className="text-foreground">Engineering Ideas</span>
                 <br />
-                <span className="text-gradient-primary">Digital</span>
+                <span className="text-gradient-primary">for What’s</span>
                 <br />
-                <span className="text-foreground">Experiences</span>
+                <span className="text-foreground">Next</span>
               </h1>
             </motion.div>
 
@@ -68,10 +68,10 @@ export const HeroSection = () => {
                 </a>
               </Button>
               <Button variant="heroOutline" size="lg" asChild>
-                <a href="#" download>
-                  <Download className="mr-2" size={18} />
-                  Download CV
-                </a>
+              <a href="/resume.pdf" download="Steve_Jachin_CV.pdf">
+              <Download className="mr-2" size={18} />
+              Download CV
+              </a>
               </Button>
             </motion.div>
 
@@ -82,7 +82,7 @@ export const HeroSection = () => {
               className="flex gap-4 pt-4"
             >
               <a
-                href="https://github.com"
+                href="https://github.com/SJP04"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
@@ -98,7 +98,7 @@ export const HeroSection = () => {
                 <Linkedin size={22} />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/_s7eve_/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
@@ -106,7 +106,7 @@ export const HeroSection = () => {
                 <Instagram size={22} />
               </a>
               <a
-                href="mailto:steve@example.com"
+                href="mailto:stevejachinpeniel@gmail.com"
                 className="p-3 rounded-lg bg-muted/50 text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
               >
                 <Mail size={22} />
@@ -128,17 +128,17 @@ export const HeroSection = () => {
               {/* Image container - Add your photo here */}
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-4 border-primary/30 glow-primary">
                 <img 
-                  src="https://media.licdn.com/dms/image/v2/D5603AQHMKpWz6LHQYQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1719247497877"
-                  alt="Steve T - Full Stack Developer"
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    // Fallback to initials if image fails
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                  }}
-                />
+                src="/steve.jpeg" 
+                alt="Steve Jachin - Full Stack Developer"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                // Fallback logic in case the image name is wrong
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                }}
+              />
                 <div className="hidden absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center text-6xl font-display font-bold text-primary/50">
-                  ST
+                  SJP
                 </div>
               </div>
 

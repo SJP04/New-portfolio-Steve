@@ -7,43 +7,59 @@ import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    category: "Full Stack",
-    description: "A comprehensive e-commerce solution with real-time inventory management, secure payment processing, and AI-powered recommendations.",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    image: "/placeholder.svg",
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "IOT-Enabled Pressure Monitoring And Alert System",
+    category: "AI - IOT",
+    description: "Developed an IoT-based wearable device using Arduino Uno and water sensors to monitor underwater pressure in real time and detect abnormalities Triggered audible alerts via a buzzer to enhance user safety.",
+    tags: ["Iot", "Aurdino uno", "Aurdino Ide", "Sensors"],
+    image: "/iot-project.png", 
+    githubUrl: "https://github.com/SJP04/IOT-Project.git",
     featured: true,
   },
   {
-    title: "Task Management App",
-    category: "Web Application",
-    description: "Collaborative project management tool with real-time updates, drag-and-drop functionality, and team analytics dashboard.",
-    tags: ["TypeScript", "Next.js", "PostgreSQL", "WebSocket"],
-    image: "/placeholder.svg",
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "Portfolio website",
+    category: "Web Development",
+    description: "During my internship at Next24tech Technology & services I designed and developed a responsive personal portfolio website to showcase my skills and expertise in web development.",
+    tags: ["HTML", "CSS", "Javascript", "Bootstrap"],
+    image: "/Portfolio-steve.png",
+    liveUrl: "https://stevejachinpeniel.netlify.app/",
+    githubUrl: "https://github.com/SJP04/Portfolio-steve.git",
     featured: true,
   },
   {
-    title: "AI Content Generator",
+    title: "Voice-Controlled File Explorer",
+    category: "Hardware",
+    description: "A Python-based application that allows users to manage files and folders using voice commands and a graphical interface. It combines Tkinter for the GUI, SpeechRecognition for voice control, and pyttsx3 for text-to-speech feedback.",
+    tags: ["Python", "Tkinter", "SpeechRecognition ", "pyttsx3"],
+    image: "/hardware-project.png",
+    githubUrl: "https://github.com/sms32/Voice-Controlled-File-Manager.git",
+    featured: false,
+  },
+  {
+    title: "Large Language Model for employee data management",
     category: "AI / ML",
-    description: "Smart content generation platform leveraging GPT models for automated blog posts, social media content, and marketing copy.",
-    tags: ["Python", "OpenAI", "React", "FastAPI"],
-    image: "/placeholder.svg",
+    description: "Developed a Large Language Model (LLM) for employee data management and intelligent querying using Hugging Face transformers.",
+    tags: ["Hugging Face", "transformers", "Python", "PyTorch"],
+    image: "/Employee-llm.png",
     liveUrl: "#",
     githubUrl: "#",
     featured: false,
   },
   {
-    title: "Health & Fitness Tracker",
-    category: "Mobile / Web",
-    description: "Cross-platform fitness application with workout tracking, nutrition logging, and personalized wellness insights.",
-    tags: ["React Native", "Firebase", "Charts.js", "PWA"],
-    image: "/placeholder.svg",
-    liveUrl: "#",
-    githubUrl: "#",
+    title: "E-Learning website",
+    category: "Web Development",
+    description: "During my internship at Next24tech Technology & Services, I designed and developed a responsive e-learning website to enhance online education accessibility.",
+    tags: ["HTML", " CSS", "JavaScript"],
+    image: "/E-learning-website.png",
+    githubUrl: "https://github.com/SJP04/E-learning-website.git",
+    featured: false,
+  },
+  {
+    title: "E-commerce-website",
+    category: "Web Development",
+    description: "Designed and developed a responsive E-commerce website to showcase my skills and expertise in web development.",
+    tags: ["HTML", " CSS", "JavaScript"],
+    image: "/E-commerce-website.png",
+    githubUrl: "https://github.com/SJP04/E-commerce-website.git",
     featured: false,
   },
 ];
@@ -84,8 +100,23 @@ export const ProjectsSection = () => {
               <div className="glass-card rounded-2xl overflow-hidden h-full hover:border-primary/30 transition-all duration-500 hover:shadow-lg hover:shadow-primary/10">
                 {/* Project Image */}
                 <div className="relative h-48 bg-muted overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20" />
-                  <div className="absolute inset-0 flex items-center justify-center">
+                   
+                  {/* 1. ACTUAL IMAGE */}
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    onError={(e) => {
+                      // Fallback: If image fails to load, hide image and show the colorful placeholder div below
+                      e.currentTarget.style.display = 'none';
+                      // Target the next sibling (the div below) and make it flex
+                      const fallback = e.currentTarget.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = 'flex';
+                    }}
+                  />
+
+                  {/* 2. FALLBACK PLACEHOLDER (Hidden by default, shown if image fails) */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 hidden flex-col items-center justify-center">
                     <span className="text-4xl font-display font-bold text-primary/30">
                       {project.title.charAt(0)}
                     </span>
@@ -93,12 +124,14 @@ export const ProjectsSection = () => {
                   
                   {/* Overlay on hover */}
                   <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                    <Button variant="hero" size="sm" asChild>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink size={16} />
-                        Live Demo
-                      </a>
-                    </Button>
+                    {project.liveUrl && (
+                      <Button variant="hero" size="sm" asChild>
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink size={16} />
+                          Live Demo
+                        </a>
+                      </Button>
+                    )}
                     <Button variant="heroOutline" size="sm" asChild>
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                         <Github size={16} />
@@ -149,7 +182,7 @@ export const ProjectsSection = () => {
           className="text-center mt-12"
         >
           <Button variant="heroOutline" size="lg" asChild>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/SJP04" target="_blank" rel="noopener noreferrer">
               View All Projects
               <ArrowUpRight className="ml-2" size={18} />
             </a>

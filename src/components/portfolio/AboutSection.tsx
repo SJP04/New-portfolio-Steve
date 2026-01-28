@@ -1,22 +1,21 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code2, Palette, Rocket, Users } from "lucide-react";
+import { Code2, Palette, Rocket, Users, Cpu } from "lucide-react";
 
 const stats = [
-  { value: "5+", label: "Years Experience", icon: Code2 },
-  { value: "50+", label: "Projects Completed", icon: Rocket },
-  { value: "30+", label: "Happy Clients", icon: Users },
-  { value: "10+", label: "Technologies", icon: Palette },
+  { value: "2+", label: "Years Experience", icon: Code2 },
+  { value: "5+", label: "Projects Completed", icon: Rocket },
+  { value: "2+", label: "Happy Clients", icon: Users },
+  { value: "10+", label: "Technologies", icon: Cpu },
 ];
 
 const expertise = [
   "Frontend Development",
   "Backend Architecture",
-  "Database Design",
-  "API Development",
-  "UI/UX Design",
-  "Cloud Deployment",
+  "Database Deployment",
+  "AI/ML Development",
+  "AI-IOT Development"
 ];
 
 export const AboutSection = () => {
@@ -56,13 +55,15 @@ export const AboutSection = () => {
                 Who I Am
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                I'm a passionate full-stack developer with a keen eye for design and a love for 
-                creating seamless digital experiences. With expertise in modern web technologies, 
-                I transform complex ideas into elegant, user-friendly solutions.
+                I am an ambitious Engineering student specializing in Computer Science with a focus
+                on Artificial Intelligence and Machine Learning at Karunya University. Currently,
+                I am expanding my expertise in AI and ML, aiming to integrate cutting-edge technologies
+                with AI/ML. My goal is to continuously push the boundaries of innovation, enhance my
+                proficiency, in the fields of Artificial Intelligence and Machine Learning.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                My approach combines technical excellence with creative problem-solving, 
-                ensuring every project I work on delivers both functionality and aesthetic appeal.
+                I am committed to continuous learning and excellence, striving to innovate and  
+                lead in the transformative fields of AI and ML.
               </p>
             </div>
 

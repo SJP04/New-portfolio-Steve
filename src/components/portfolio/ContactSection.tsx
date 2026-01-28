@@ -11,28 +11,28 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "steve@example.com",
-    href: "mailto:steve@example.com",
+    value: "stevejachinpeniel@gmail.com",
+    href: "mailto:stevejachinpeniel@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "+91 (805) 686-3948",
+    href: "tel:+918056863948",
   },
   {
     icon: MapPin,
     label: "Location",
-    value: "San Francisco, CA",
+    value: "Tamil Nadu, India",
     href: "#",
   },
 ];
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com", label: "GitHub" },
+  { icon: Github, href: "https://github.com/SJP04", label: "GitHub" },
   { icon: Linkedin, href: "https://linkedin.com/in/steve0212", label: "LinkedIn" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  { icon: Instagram, href: "https://www.instagram.com/_s7eve_/", label: "Instagram" },
+  { icon: Twitter, href: "https://x.com/Steve50210034", label: "Twitter" },
 ];
 
 export const ContactSection = () => {
@@ -43,17 +43,38 @@ export const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
     
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    });
-    
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+    const formEndpoint = "https://formspree.io/f/xojqvlyv";
+
+    try {
+      const response = await fetch(formEndpoint, {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        (e.target as HTMLFormElement).reset();
+      } else {
+        throw new Error('Failed to send');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try emailing me directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -77,14 +98,14 @@ export const ContactSection = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Contact Info */}
+          {/* Contact Info (No changes needed here) */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="space-y-8"
           >
-            <div className="glass-card p-8 rounded-2xl space-y-6">
+           <div className="glass-card p-8 rounded-2xl space-y-6">
               <h3 className="text-2xl font-display font-semibold text-foreground">
                 Get in Touch
               </h3>
@@ -151,6 +172,7 @@ export const ContactSection = () => {
                   <label className="text-sm font-medium text-foreground">Name</label>
                   <Input
                     type="text"
+                    name="name" 
                     placeholder="Your name"
                     required
                     className="bg-muted/50 border-border focus:border-primary"
@@ -160,6 +182,7 @@ export const ContactSection = () => {
                   <label className="text-sm font-medium text-foreground">Email</label>
                   <Input
                     type="email"
+                    name="email" 
                     placeholder="your@email.com"
                     required
                     className="bg-muted/50 border-border focus:border-primary"
@@ -171,6 +194,7 @@ export const ContactSection = () => {
                 <label className="text-sm font-medium text-foreground">Subject</label>
                 <Input
                   type="text"
+                  name="subject" 
                   placeholder="What's this about?"
                   required
                   className="bg-muted/50 border-border focus:border-primary"
@@ -180,6 +204,7 @@ export const ContactSection = () => {
               <div className="space-y-2">
                 <label className="text-sm font-medium text-foreground">Message</label>
                 <Textarea
+                  name="message" 
                   placeholder="Tell me about your project..."
                   required
                   rows={5}

@@ -9,21 +9,23 @@ export const Footer = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col md:flex-row items-center justify-between gap-4"
+          className="flex flex-col md:flex-row items-center justify-center gap-4"
         >
-          <div className="flex items-center gap-2 text-muted-foreground text-sm">
+          {/* CHANGED: Used 'text-primary' to match the Download CV button color */}
+          <div className="flex items-center gap-2 text-primary text-sm">
             <span>© {new Date().getFullYear()} Steve — Forged with vision and finesse. All rights reserved.</span>
-            <Heart className="text-primary" size={16} fill="currentColor" />
+            
+            {/* <Heart className="text-primary" size={16} fill="currentColor" /> */}
           </div>
 
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+          {/* <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-primary transition-colors">
               Privacy Policy
             </a>
             <a href="#" className="hover:text-primary transition-colors">
               Terms of Service
             </a>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </footer>
