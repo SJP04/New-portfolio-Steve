@@ -68,10 +68,10 @@ export const HeroSection = () => {
                 </a>
               </Button>
               <Button variant="heroOutline" size="lg" asChild>
-              <a href="/resume.pdf" download="Steve_Jachin_CV.pdf">
-              <Download className="mr-2" size={18} />
-              Download CV
-              </a>
+                <a href={`${import.meta.env.BASE_URL}STEVE_JACHIN_PENIEL_S_RESUME.pdf`} download="STEVE_JACHIN_PENIEL_S_RESUME.pdf">
+                  <Download className="mr-2" size={18} />
+                  Download CV
+                </a>
               </Button>
             </motion.div>
 
